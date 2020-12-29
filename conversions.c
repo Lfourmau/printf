@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2020/12/29 13:53:57 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2020/12/29 14:43:42 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,23 @@ void ft_convert_X(char *toconvert)//donner l'argument correspondant
 {
 	//pareil que petit x mais avec ABCDEF
 }
+
+char *convert_all(argument, structure)
+{
+	if (t_struct->spec == 'c')
+		t_struct->toprint = ft_convert_c(argument);
+	if (t_struct->spec == 's')
+		t_struct->toprint = ft_convert_s(argument);
+	if (t_struct->spec == 'p')
+		t_struct->toprint = ft_convert_p(argument);
+	if (t_struct->spec == 'd')
+		t_struct->toprint = ft_convert_d(argument);
+	if (t_struct->spec == 'i')
+		t_struct->toprint = ft_convert_i(argument);
+	if (t_struct->spec == 'u')
+		t_struct->toprint = ft_convert_u(argument);
+	if (t_struct->spec == 'x')
+		t_struct->toprint = ft_convert_x(argument);
+	if (t_struct->spec == 'X')
+		t_struct->toprint = ft_convert_X(argument);
+} 
