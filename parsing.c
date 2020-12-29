@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:26:29 by lfourmau          #+#    #+#             */
-/*   Updated: 2020/12/29 10:32:41 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2020/12/29 11:25:36 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	parse_flags(char *toparse, pointeur sur ma struct) // toparse = ptr sur le 
 		if (*toparse == ' ')
 			t_struct->flags[2] = ' ';
 		if (*toparse == '#')
-			t_struct->flags[2] = ' ';
+			t_struct->flags[3] = '#';
 		if (*toparse == '+')
-			t_struct->flags[2] = '+';
+			t_struct->flags[4] = '+';
 		toparse++;
 	}
 	return (toparse); //pour reprendre de la ou on s'est arrete a la fct suivante
@@ -54,14 +54,15 @@ char	*parse_precision(char *1er argument du printf, struct a modifier)
 	char *start;
 
 	//va chercher la precision(elle est precedee d'un point) et la mettre dans la struct
-	if (*toparse != '.')
-		return (0);
-	toparse++;//cest un ., donc je vais derriere pour voir les chiffres
-	start = toparse;
-	while (ft_isdigit(*toparse))
-		toparse++;
-	t_struct->width = ft_atoi(toparse - start); //atoi sur la chaine de chiffre ?
-	//inserer qq part la condition pour l'asterisque
+	if (*toparse == '.')
+	{
+		toparse++;//cest un ., donc je vais derriere pour voir les chiffres
+		start = toparse;
+		while (ft_isdigit(*toparse))
+			toparse++;
+		t_struct->width = ft_atoi(toparse - start); //atoi sur la chaine de chiffre ?
+		//inserer qq part la condition pour l'asterisque
+	}
 	return (toparse);
 }
 
@@ -70,7 +71,7 @@ void	parse_spec(char *toparse, ma struct)
 	if (ft_isspec(*toparse))
 		t_struct->spec = *toparse;
 	else
-		return (0);
+		return (-1);
 }
 
 void	parse_total(char *toparse, strcuture)
