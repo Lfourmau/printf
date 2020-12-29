@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isit.c                                          :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/27 14:04:10 by lfourmau          #+#    #+#             */
-/*   Updated: 2020/12/29 09:30:24 by lfourmau         ###   ########lyon.fr   */
+/*   Created: 2020/12/29 10:08:03 by lfourmau          #+#    #+#             */
+/*   Updated: 2020/12/29 10:32:43 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isflag(char c)
-{
-	if (c == '0' || c == '-') // flags bonu a ajouter ici
-		return (1);
-	return (0);
-}
+#include "ft_printf.h"
 
-int	ft_isspec(char c)
+int ft_printf(const char *, ...)
 {
-	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u' ||
-		c == 'x' || c == 'X' || c== '%' || c == 'n')
-		return (1);
-	return (0);
+	parse_total(const char *, ptr structure);
+	
 }

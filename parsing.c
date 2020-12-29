@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:26:29 by lfourmau          #+#    #+#             */
-/*   Updated: 2020/12/27 14:14:14 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2020/12/29 10:32:41 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,72 @@ void	parse_flags(char *toparse, pointeur sur ma struct) // toparse = ptr sur le 
 {
 	while (ft_isflag(*toparse))
 	{
-		//un if pour chaque flag qui le met dans le bon index du tableau de la struct
 		if (*toparse == '-')
-			t_struct->flags[0] = '-'; //met le flag a son index dans la struct
+			t_struct->flags[0] = '-';
 		if (*toparse == '0')
-			t_struct->flags[1] = '0'; // met le flag a son index dans la strcut
+			t_struct->flags[1] = '0';
+		if (*toparse == ' ')
+			t_struct->flags[2] = ' ';
+		if (*toparse == '#')
+			t_struct->flags[2] = ' ';
+		if (*toparse == '+')
+			t_struct->flags[2] = '+';
 		toparse++;
 	}
-
-	//va chercher les flags et les mettre dans la struct
+	return (toparse); //pour reprendre de la ou on s'est arrete a la fct suivante
 }
 
-int		parse_width(char *1er argument du printf, struct a modifier)
+char	*parse_width(char *toparse, struct a modifier) //toparse == resultat de la fct du dessus
 {
-	//va chercher la width si il y a des chiffres et va le rercup dans les arg si asterisque
-	//peut etre faire un atoi
-	//doit retourner un int pout stocker la width dans la struct
+	char *start;
+
+	if (ft_isdigit(*toparse))
+	{
+		start = toparse;
+		while (ft_isdigit(*toparse))
+			toparse++;
+		t_struct->width = ft_atoi(toparse - start); //atoi sur la chaine de chiffre ?
+	}
+	else if (*toparse == '*')
+	{
+		//aller chercher le prochain argument
+	}
+	return (toparse);
 }
 
-int		parse_precision(char *1er argument du printf, struct a modifier)
+char	*parse_precision(char *1er argument du printf, struct a modifier)
 {
+	char *start;
+
 	//va chercher la precision(elle est precedee d'un point) et la mettre dans la struct
-	//doit retourner un int pout stocker la prec dans la struct
+	if (*toparse != '.')
+		return (0);
+	toparse++;//cest un ., donc je vais derriere pour voir les chiffres
+	start = toparse;
+	while (ft_isdigit(*toparse))
+		toparse++;
+	t_struct->width = ft_atoi(toparse - start); //atoi sur la chaine de chiffre ?
+	//inserer qq part la condition pour l'asterisque
+	return (toparse);
+}
+
+void	parse_spec(char *toparse, ma struct)
+{
+	if (ft_isspec(*toparse))
+		t_struct->spec = *toparse;
+	else
+		return (0);
+}
+
+void	parse_total(char *toparse, strcuture)
+{
+	if (!(ft_strchr(toparse, '%')))
+		ft_putstr_fd(1, toparse);
+	else
+	{
+		parse_flags(toparse, structure);
+		parse_width(toparse, structure);
+		parse_precision(toparse, structure);
+		parse_spec(toparse, structure);
+	}
 }
