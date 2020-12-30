@@ -37,7 +37,7 @@ void	ft_space(char *)
 
 }
 
-void	app_flags(structure, toprint de la struct)
+void	app_flags(structure, t_struct *ptr)
 {
 	if (t_struct->flags[0])
 		t_struct->toprint = ft_moins(t_struct->toprint);

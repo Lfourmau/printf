@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	parse_flags(char *toparse, pointeur sur ma struct) // toparse = ptr sur le % de la chaine ?
+void	parse_flags(char *toparse, t_struct	*ptr) // toparse = ptr sur le % de la chaine ?
 {
 	while (ft_isflag(*toparse))
 	{
@@ -31,7 +31,7 @@ void	parse_flags(char *toparse, pointeur sur ma struct) // toparse = ptr sur le 
 	return (toparse); //pour reprendre de la ou on s'est arrete a la fct suivante
 }
 
-char	*parse_width(char *toparse, struct a modifier) //toparse == resultat de la fct du dessus
+char	*parse_width(char *toparse, t_struct *ptr) //toparse == resultat de la fct du dessus
 {
 	char *start;
 
@@ -49,7 +49,7 @@ char	*parse_width(char *toparse, struct a modifier) //toparse == resultat de la 
 	return (toparse);
 }
 
-char	*parse_precision(char *1er argument du printf, struct a modifier)
+char	*parse_precision(char *1er argument du printf, t_struct *ptr)
 {
 	char *start;
 
@@ -66,7 +66,7 @@ char	*parse_precision(char *1er argument du printf, struct a modifier)
 	return (toparse);
 }
 
-void	parse_spec(char *toparse, ma struct)
+void	parse_spec(char *toparse, t_struct *ptr)
 {
 	if (ft_isspec(*toparse))
 		t_struct->spec = *toparse;
@@ -74,7 +74,7 @@ void	parse_spec(char *toparse, ma struct)
 		return (-1);
 }
 
-void	parse_total(char *toparse, strcuture)
+void	parse_total(char *toparse, t_struct *ptr)
 {
 	if (!(ft_strchr(toparse, '%')))
 		ft_putstr_fd(1, toparse);

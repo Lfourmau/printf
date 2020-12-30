@@ -14,7 +14,8 @@
 
 int ft_printf(const char *, ...)
 {
-	parse_total(const char *, ptr structure);
-	convert_all(argument, ptr structure);
-	app_flags(strcuture);	
+	parse_total(const char *, t_struct *ptr);
+	convert_all(argument, t_struct *ptr);
+	app_flags(t_struct *ptr);
+	final_print();
 }

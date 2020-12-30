@@ -50,7 +50,7 @@ void ft_convert_X(char *toconvert)//donner l'argument correspondant
 	//pareil que petit x mais avec ABCDEF
 }
 
-char *convert_all(argument, structure)
+char *convert_all(argument, t_struct *ptr)
 {
 	if (t_struct->spec == 'c')
 		t_struct->toprint = ft_convert_c(argument);
