@@ -12,14 +12,13 @@
 
 #include "ft_printf.h"
 
-void	print_c(t_struct *ptr)
+void	print_chars(char *toprint) //pour afficher char et str
 {
-	//afficher toprint
-}
-
-void	print_s(t_struct *ptr)
-{
-	//afficher toprint
+	while (*toprint)
+	{
+		ft_putchar_fd(toprint);
+		toprint++;			
+	}
 }
 
 void	print_p(t_struct *ptr)
@@ -29,7 +28,7 @@ void	print_p(t_struct *ptr)
 
 void	print_d(t_struct *ptr)
 {
-	//afficher toprint
+	//afficher un int --> Putnbr
 }
 
 void	print_i(t_struct *ptr)
@@ -56,9 +55,9 @@ i
 void	final_print(t_struct *ptr)
 {
 	if (t_struct->spec == 'c')
-		print_c(ptr sur struct);
+		print_chars(ptr sur struct);
 	if (t_struct->spec == 's')
-		print_s(ptr sur struct);
+		print_chars(ptr sur struct);
 	if (t_struct->spec == 'p')
 		print_p(ptr sur struct);
 	if (t_struct->spec == 'd')

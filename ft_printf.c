@@ -12,10 +12,19 @@
 
 #include "ft_printf.h"
 
-int ft_printf(const char *, ...)
+int ft_printf(const char *toprint, ...)
 {
+	va_list ap;
+
+	va_start(ap, toprint);
 	parse_total(const char *, t_struct *ptr);
-	convert_all(argument, t_struct *ptr);
-	app_flags(t_struct *ptr);
-	final_print();
+
+	if (t_struct->spec == 'spec')//check le spec dans la struct pour bien typer le prochain arg ?
+		type nb = va_arg(ap, type); 
+
+		convert_all(argument, t_struct *ptr);
+		app_flags(t_struct *ptr);
+		final_print();
+
+	va_end(ap);
 }
