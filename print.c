@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 14:39:38 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/04 10:40:27 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/04 11:17:16 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,13 @@ void	print_p(t_struct *ptr)
 
 void	print_diu(t_struct *ptr)
 {
-	//diu car ce sont des entiers en base 10
+	ft_putnbr_fd(1, ptr struct);
 }
 
-void	print_x(t_struct *ptr)
+void	print_xX(t_struct *ptr)
 {
-	//afficher toprint
+	//afficher toprint xX car ce sont deux entiers hexa
 }
-
-void	print_X(t_struct *ptr)
-{
-	//afficher toprint
-}
-i
 
 void	final_print(t_struct *ptr)
 {
@@ -52,8 +46,6 @@ void	final_print(t_struct *ptr)
 		print_p(ptr sur struct);
 	if (t_struct->spec == 'd' || t_struct->spec == 'i' || t_struct->spec == 'u')
 		print_diu(ptr sur struct);
-	if (t_struct->spec == 'x')
-		print_x(ptr sur struct);
-	if (t_struct->spec == 'X')
-		print_X(ptr sur struct);
+	if (t_struct->spec == 'x' || t_struct->spec == 'X')
+		print_xX(ptr sur struct);
 }
