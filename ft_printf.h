@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:10:08 by lfourmau          #+#    #+#             */
-/*   Updated: 2020/12/29 11:25:38 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/04 10:35:20 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 
 typedef struct	s_struct
 {
+	va_list ap;
 	char	*toprint; //la chaine resultat, pour la balader d'une fct a l'autre ?
-	char	flags[5]; //tableau avec 1index pour chaque flag (5 car c'est le nb max de flags)
+	int		flags[5]; //tableau avec 1index pour chaque flag (5 car c'est le nb max de flags)
 	int		width; //recuperer a la sortie de parse width ?
 	int		precision; //recup sortie de parse precision ?
 	char	spec; //recup le spec pour utiliser dans des conditions ?

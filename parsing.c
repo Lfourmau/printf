@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:26:29 by lfourmau          #+#    #+#             */
-/*   Updated: 2020/12/29 11:25:36 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/04 10:35:26 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ void	parse_flags(char *toparse, t_struct	*ptr) // toparse = ptr sur le % de la c
 	while (ft_isflag(*toparse))
 	{
 		if (*toparse == '-')
-			t_struct->flags[0] = '-';
+			t_struct->flags[0] = 1;
 		if (*toparse == '0')
-			t_struct->flags[1] = '0';
+			t_struct->flags[1] = 1;
 		if (*toparse == ' ')
-			t_struct->flags[2] = ' ';
+			t_struct->flags[2] = 1;
 		if (*toparse == '#')
-			t_struct->flags[3] = '#';
+			t_struct->flags[3] = 1;
 		if (*toparse == '+')
-			t_struct->flags[4] = '+';
+			t_struct->flags[4] = 1;
 		toparse++;
 	}
 	return (toparse); //pour reprendre de la ou on s'est arrete a la fct suivante
