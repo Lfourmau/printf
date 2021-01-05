@@ -6,53 +6,54 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/05 13:26:20 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/05 15:32:47 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 //pas de convert_c = elle se fait seule  pendant affchage comme putchar
 
-void ft_convert_s(char *toconvert, ptr struct)//donner l'argument correspondant
+char	*ft_convert_s(char *toconvert)
 {
 	//strdup pour copier la chaine et la traiter
-	t_struct->toprint = ft_strdup(toconvert);
+	return (ft_strdup(toconvert));
 }
 
-void ft_convert_p(void *toconvert)//donner l'argument correspondant
+char	*ft_convert_p(void *toconvert)
 {
-	ft_itoa_base(&(t_struct->toprint), "0123456789abcdef");
+	return (ft_itoa_base(&toconvert, "0123456789abcdef"));
 }
 
-void ft_convert_di(int i)//donner l'argument correspondant
+char 	*ft_convert_di(int nb)
 {
-	t_struct->toprint = ft_itoa_base(i, "0123456789");
+	return (ft_itoa_base(nb, "0123456789"));
 }
 
-void ft_convert_u(unsigned int)//donner l'argument correspondant
+char	*ft_convert_u(unsigned int nb)
 {
-	t_struct->toprint = ft_itoa_base(unsigned int, "0123456789");
+	return (ft_itoa_base(nb, "0123456789"));
 }
 
-void ft_convert_xX(unsigned int)//donner l'argument correspondant
+char	*ft_convert_xX(unsigned int nb)
 {
-	if (t_struct->spec == 'x')
-		t_struct->toprint = ft_itoa_base(unsigned int, "0123456789abcdef");
-	if (t_struct->spec == 'X')
-		t_struct->toprint = ft_itoa_base(unsigned int, "0123456789ABCDEF");
+	if (ptr_struct->spec == 'x')
+		return (ft_itoa_base(nb, "0123456789abcdef"));
+	if (ptr_struct->spec == 'X')
+		return(ft_itoa_base(nb, "0123456789ABCDEF"));
+
 }
 
-char *convert_all(argument, t_struct *ptr)
+char *convert_all(t_struct *ptr_struct)
 {
-	if (t_struct->spec == 'c')
-		t_struct->toprint = argument;
-	if (t_struct->spec == 's')
-		t_struct->toprint = ft_convert_s(argument);
-	if (t_struct->spec == 'p')
-		t_struct->toprint = ft_convert_p(argument);
-	if (t_struct->spec == 'd' || t_struct->spec == 'i')
-		t_struct->toprint = ft_convert_di(argument);
-	if (t_struct->spec == 'u')
-		t_struct->toprint = ft_convert_u(argument);
-	if (t_struct->spec == 'x' || t_struct->spec == 'X')
-		ft_convert_xX(t_struct->argument);
+	if (ptr_struct->spec == 'c')
+		ptr_struct->toprint = va_arg(ptr_struct->ap, int);
+	if (ptr_struct->spec == 's')
+		ptr_struct->toprint = ft_convert_s(va_arg(ptr_struct->ap, char *));
+	if (ptr_struct->spec == 'p')
+		ptr_struct->toprint = ft_convert_p(va_arg(ptr_struct->ap, void *));
+	if (ptr_struct->spec == 'd' || ptr_struct->spec == 'i')
+		ptr_struct->toprint = ft_convert_di(va_arg(ptr_struct->ap, int));
+	if (ptr_struct->spec == 'u')
+		ptr_struct->toprint = ft_convert_u(va_arg(ptr_struct->ap, unsigned int));
+	if (ptr_struct->spec == 'x' || ptr_struct->spec == 'X')
+		ptr_struct->toprint = ft_convert_xX(va_arg((ptr_struct->ap, unsigned int));
 } 
