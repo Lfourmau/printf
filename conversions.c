@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/05 15:32:47 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/05 15:53:40 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ char *convert_all(t_struct *ptr_struct)
 		ptr_struct->toprint = ft_convert_u(va_arg(ptr_struct->ap, unsigned int));
 	if (ptr_struct->spec == 'x' || ptr_struct->spec == 'X')
 		ptr_struct->toprint = ft_convert_xX(va_arg((ptr_struct->ap, unsigned int));
+	ptr_struct->toprint_len = ft_strlen(ptr_struct->toprint);
 } 

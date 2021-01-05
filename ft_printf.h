@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:10:08 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/05 15:32:53 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/05 15:49:33 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 typedef struct	s_struct
 {
 	va_list *ap;
-	char	*toprint; 
+	char	*toprint;
+   	size_t 	toprint_len;
 	int		flags[5];
 	int		width;
 	int		precision;
