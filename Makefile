@@ -6,16 +6,18 @@
 #    By: loic <loic@student.42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/30 15:40:56 by loic              #+#    #+#              #
-#    Updated: 2020/12/30 15:40:59 by loic             ###   ########lyon.fr    #
+#    Updated: 2021/01/05 12:40:32 by lfourmau         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
+#
+#
+#
+#
+#
+#
 
-NAME = libftprintf.a
-
-GCC = gcc -Wall -Wextra -Werror
-
-SRCS = print.c parsing.c conversions.c app_flags.c ft_isit.c ft_printf.c
-
-OBJS = 
-
-
+main :
+	gcc main.c -D COLORS -D PRINTF=printf -D PRINTF_=printf 
+	./a.out > toto.txt
+	more -R toto.txt
+	rm toto.txt

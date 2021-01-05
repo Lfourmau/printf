@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:26:29 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/04 17:03:47 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/05 13:26:23 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ char	*parse_width(char *toparse, t_struct *ptr) //toparse == resultat de la fct 
 		t_struct->width = ft_atoi(toparse - start); //atoi sur la chaine de chiffre ?
 	}
 	else if (*toparse == '*')
-	{
-		//aller chercher le prochain argument
-	}
+		t_struct->width = va_arg(ap, int);
 	return (toparse);
 }
 
@@ -57,11 +55,15 @@ char	*parse_precision(char *1er argument du printf, t_struct *ptr)
 	if (*toparse == '.')
 	{
 		toparse++;//cest un ., donc je vais derriere pour voir les chiffres
-		start = toparse;
-		while (ft_isdigit(*toparse))
-			toparse++;
-		t_struct->width = ft_atoi(toparse - start); //atoi sur la chaine de chiffre ?
-		//inserer qq part la condition pour l'asterisque
+		if (ft_isdigit(*toparse))
+		{
+			start = toparse;
+			while (ft_isdigit(*toparse))
+				toparse++;
+			t_struct->width = ft_atoi(toparse - start); //atoi sur la chaine de chiffre ?
+		}
+		else if (*toparse = '*')
+			t_struct->precision = va_arg(ap, int);
 	}
 	return (toparse);
 }
