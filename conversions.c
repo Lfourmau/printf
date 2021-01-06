@@ -6,11 +6,12 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/06 13:55:36 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/06 15:45:07 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
 //pas de convert_c = elle se fait seule  pendant affchage comme putchar
 
 char	*ft_convert_s(char *toconvert, t_struct *ptr_struct)
