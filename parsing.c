@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:26:29 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/06 15:55:06 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/07 09:27:53 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,27 +76,31 @@ char	*parse_precision(char *toparse, t_struct *ptr_struct)
 				ptr_struct->precision = 0;
 		}
 	}
+	toparse++;
 	return (toparse);
 }
 
-void	parse_spec(char *toparse, t_struct *ptr_struct)
+char *	parse_spec(char *toparse, t_struct *ptr_struct)
 {
 	if (ft_isspec(*toparse))
 		ptr_struct->spec = *toparse;
+	toparse++;
+	return (toparse);
 }
 
 void	parse_total(char *toparse, t_struct *ptr_struct)
 {
-	while (*toparse &&*toparse != '%')
+	char *prec_to_spec;
+	while (*toparse && *toparse != '%')
 	{
 		ft_putchar_fd(*toparse, 1);
-		toparse++;
+		toparse++;	
 	}
 	if (*toparse)
 	{
 		parse_flags(toparse, ptr_struct);
 		parse_width(toparse, ptr_struct);
-		parse_precision(toparse, ptr_struct);
-		parse_spec(toparse, ptr_struct);
+		prec_to_spec = parse_precision(toparse, ptr_struct);
+		toparse = parse_spec(prec_to_spec, ptr_struct);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/06 15:45:07 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/07 09:08:24 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ char 	*ft_convert_di(int nb, t_struct *ptr_struct)
 
 char	*ft_convert_u(unsigned int nb, t_struct *ptr_struct)
 {
-	return (ft_itoa_base(nb, "0123456789"));
+	char *tmp;
+
+	tmp = ft_itoa_base(nb, "0123456789");
+	return (tmp);
 }
 
 char	*ft_convert_xX(unsigned int nb, t_struct *ptr_struct)
@@ -59,4 +62,4 @@ void	convert_all(t_struct *ptr_struct)
 	if (ptr_struct->spec == 'x' || ptr_struct->spec == 'X')
 		ptr_struct->toprint = ft_convert_xX(va_arg(ptr_struct->ap, unsigned int), ptr_struct);
 	ptr_struct->toprint_len = ft_strlen(ptr_struct->toprint);
-} 
+}
