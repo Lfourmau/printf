@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:26:29 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/07 09:27:53 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/07 12:23:25 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char *	parse_spec(char *toparse, t_struct *ptr_struct)
 	return (toparse);
 }
 
-void	parse_total(char *toparse, t_struct *ptr_struct)
+char	*parse_total(char *toparse, t_struct *ptr_struct)
 {
 	char *prec_to_spec;
 	while (*toparse && *toparse != '%')
@@ -103,4 +103,5 @@ void	parse_total(char *toparse, t_struct *ptr_struct)
 		prec_to_spec = parse_precision(toparse, ptr_struct);
 		toparse = parse_spec(prec_to_spec, ptr_struct);
 	}
+	return (toparse);
 }

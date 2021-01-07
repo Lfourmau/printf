@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:27:05 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/06 15:51:53 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/07 10:54:35 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int main()
 {
-	printf("bon%dour\n", 4);
-	ft_printf("bon%dour\n", 4);
+	printf("ca fait %d ans que je travaille sur printf\n", 45896);
+	ft_printf("ca fait %d ans que je travaille sur printf\n", 45896);
 }

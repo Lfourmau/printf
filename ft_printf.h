@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:10:08 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/07 09:08:26 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/07 11:18:10 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void		convert_all(t_struct *ptr_struct);
 int			ft_isflag(char c);
 int			ft_isspec(char c);
 int			ft_isintspec(char c);
-void		parse_total(char *toparse, t_struct *ptr_struct);
+char		*parse_total(char *toparse, t_struct *ptr_struct);
 void		final_print(t_struct *ptr_struct);
 void		struct_init(t_struct *ptr_struct);
 #endif

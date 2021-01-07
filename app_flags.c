@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 14:01:33 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/06 15:25:29 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/07 10:38:09 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	print_width_front(t_struct *ptr_struct)
 	int i;
 
 	i = 0;
-	if (!(ptr_struct->flags[0]))
+	if (ptr_struct->flags[0] == 0)
 	{
 		while (i < ptr_struct->width - (ptr_struct->toprint_len))
 		{
-			if (!(ptr_struct->flags[1]))
+			if (ptr_struct->flags[1] == 0)
 				ft_putchar_fd(' ', 1);
 			else
 				ft_putchar_fd('0', 1);
