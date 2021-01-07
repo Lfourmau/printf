@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/07 12:26:33 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/07 14:07:01 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 
 char	*ft_convert_s(char *toconvert, t_struct *ptr_struct)
 {
-	//strdup pour copier la chaine et la traiter
-	return (ft_strdup(toconvert));
+	return (ft_strdup(toconvert)); //ok
 }
 
 char	*ft_convert_p(void *toconvert, t_struct *ptr_struct)
@@ -27,7 +26,7 @@ char	*ft_convert_p(void *toconvert, t_struct *ptr_struct)
 
 char 	*ft_convert_di(int nb, t_struct *ptr_struct)
 {
-	return (ft_itoa_base(nb, "0123456789"));
+	return (ft_itoa_base(nb, "0123456789")); //ok
 }
 
 char	*ft_convert_u(unsigned int nb, t_struct *ptr_struct)
@@ -41,9 +40,9 @@ char	*ft_convert_u(unsigned int nb, t_struct *ptr_struct)
 char	*ft_convert_xX(unsigned int nb, t_struct *ptr_struct)
 {
 	if (ptr_struct->spec == 'x')
-		return (ft_itoa_base(nb, "0123456789abcdef"));
+		return (ft_itoa_base(nb, "0123456789abcdef")); //ok
 	else
-		return(ft_itoa_base(nb, "0123456789ABCDEF"));
+		return(ft_itoa_base(nb, "0123456789ABCDEF")); //ok
 
 }
 

@@ -6,13 +6,13 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 14:04:10 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/06 11:42:29 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/07 13:16:25 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isflag(char c)
 {
-	return  (c == '0' || c == '-'); // flags bonu a ajouter ici
+	return  (c == '0' || c == '-');
 }
 
 int	ft_isspec(char c)
