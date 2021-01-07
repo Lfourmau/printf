@@ -14,6 +14,6 @@
 
 int main()
 {
-	printf("ca fait %*d ans que je travaille sur printf\n", 8, 785);
-	ft_printf("ca fait %d ans que je travaille sur printf\n", 785);
+	printf("ca fait %6d ans que je travaille sur printf\n",  785);
+	ft_printf("ca fait %6d ans que je travaille sur printf\n", 785);
 }
