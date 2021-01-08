@@ -6,13 +6,12 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 14:01:33 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/07 12:52:23 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/08 18:07:16 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-
+/*
 void	print_width_front(t_struct *ptr_struct)
 {
 	int i;
@@ -29,7 +28,7 @@ void	print_width_front(t_struct *ptr_struct)
 		}
 	}
 }
-
+*/
 void	print_width_back(t_struct *ptr_struct)
 {
 	int i;
@@ -43,4 +42,21 @@ void	print_width_back(t_struct *ptr_struct)
 			i++;
 		}
 	}
+}
+
+
+void	print_width_front(t_struct *ptr_struct)
+{
+	int i =  0;
+		while (i < ptr_struct->width - ptr_struct->precision && ptr_struct->flags[0] == 0)
+		{
+			ft_putchar_fd(' ', 1);
+			i++;
+		}
+		i = 0;
+		while (i < ptr_struct->toprint_len - ptr_struct->initial_len)
+		{
+			ft_putchar_fd('0', 1);
+			i++;
+		}
 }

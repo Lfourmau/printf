@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:08:03 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/07 14:06:59 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/08 18:07:21 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int ft_printf(const char *format, ...)
 		format = cursor;
 	}
 		va_end(ap);
+		free(ptr_struct);
 		return (1);
 }

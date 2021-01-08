@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:10:08 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/07 11:18:10 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/08 16:41:18 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct	s_struct
 	char	*toprint;
 	char	toprint_c;
    	int 	toprint_len;
+   	int 	initial_len;
 	int		flags[5];
 	int		width;
 	int		precision;

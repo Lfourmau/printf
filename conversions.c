@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/07 14:07:01 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/08 16:41:41 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,7 @@ void	convert_all(t_struct *ptr_struct)
 		ptr_struct->toprint = ft_convert_xX(va_arg(ptr_struct->ap, unsigned int), ptr_struct);
 	if (ptr_struct->toprint)
 		ptr_struct->toprint_len = strlen(ptr_struct->toprint);
+	ptr_struct->initial_len = ptr_struct->toprint_len;
+	if (ptr_struct->precision > ptr_struct->toprint_len)
+		ptr_struct->toprint_len += ptr_struct->precision - ptr_struct->toprint_len;
 }
