@@ -34,6 +34,8 @@ void	print_width_back(t_struct *ptr_struct)
 	int i;
 
 	i = 0;
+	if (ptr_struct->spec == 'c')
+		i++;
 	if (ptr_struct->flags[0] == 1)
 	{
 		while (i < ptr_struct->width - (ptr_struct->toprint_len))
@@ -48,6 +50,8 @@ void	print_width_back(t_struct *ptr_struct)
 void	print_width_front(t_struct *ptr_struct)
 {
 	int i =  0;
+	if (ptr_struct->spec == 'c')
+		i++;
 		while (i < ptr_struct->width - ptr_struct->precision && ptr_struct->flags[0] == 0)
 		{
 			ft_putchar_fd(' ', 1);

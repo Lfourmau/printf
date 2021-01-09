@@ -17,9 +17,21 @@ void	print_c(char toprint_c) //pour afficher char
 		ft_putchar_fd(toprint_c, 1);
 }
 
-void	print_string(char *toprint) //pour afficher str
+void	print_string(t_struct *ptr_struct) //pour afficher str
 {
-		ft_putstr_fd(toprint, 1);
+		int i;
+
+		i = 0;
+		if (ptr_struct->precision)
+		{
+			while (i < ptr_struct->precision)
+			{
+				ft_putchar_fd(ptr_struct->toprint[i], 1);
+				i++;
+			}
+		}
+		else
+			ft_putstr_fd(ptr_struct->toprint, 1);
 }
 
 void	final_print(t_struct *ptr_struct)
@@ -28,7 +40,7 @@ void	final_print(t_struct *ptr_struct)
 	if (ptr_struct->spec == 'c')
 		print_c(ptr_struct->toprint_c);
 	else
-		print_string(ptr_struct->toprint);
+		print_string(ptr_struct);
 	
 	print_width_back(ptr_struct);
 }
