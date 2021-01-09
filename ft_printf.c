@@ -17,16 +17,25 @@ int ft_printf(const char *format, ...)
 	char *cursor;
 	va_list ap;
 	t_struct	*ptr_struct;
+
+	if (!(ptr_struct = malloc(sizeof(t_struct))))
+		return (-1);
+	va_start(ptr_struct->ap, format);
 	while (*format)
 	{
-		if (!(ptr_struct = malloc(sizeof(t_struct))))
-			return (-1);
-		struct_init(ptr_struct);
-		va_start(ptr_struct->ap, format);
-		cursor = parse_total((char *)format, ptr_struct);
-		convert_all(ptr_struct);
-		final_print(ptr_struct);
-		format = cursor;
+		while (*format && *format != '%')
+		{
+			ft_putchar_fd(*format, 1);
+			format++;
+		}
+		if (*format)
+		{
+			struct_init(ptr_struct);
+			cursor = parse_total((char *)format, ptr_struct);
+			convert_all(ptr_struct);
+			final_print(ptr_struct);
+			format = cursor;
+		}
 	}
 		va_end(ap);
 		free(ptr_struct);

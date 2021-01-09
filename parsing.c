@@ -93,11 +93,6 @@ char	*parse_spec(char *toparse, t_struct *ptr_struct)
 char	*parse_total(char *toparse, t_struct *ptr_struct)
 {
 	char *parse_next;
-	while (*toparse && *toparse != '%')
-	{
-		ft_putchar_fd(*toparse, 1);
-		toparse++;	
-	}
 	toparse++;
 	if (*toparse)
 	{
