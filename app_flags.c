@@ -54,7 +54,10 @@ void	print_width_front(t_struct *ptr_struct)
 		i++;
 		while (i < ptr_struct->width - ptr_struct->precision && ptr_struct->flags[0] == 0)
 		{
-			ft_putchar_fd(' ', 1);
+			if (ptr_struct->toprint_len < ptr_struct->width)
+			{
+				ft_putchar_fd(' ', 1);
+			}
 			i++;
 		}
 		i = 0;

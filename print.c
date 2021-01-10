@@ -37,6 +37,12 @@ void	print_string(t_struct *ptr_struct) //pour afficher str
 void	final_print(t_struct *ptr_struct)
 {
 	print_width_front(ptr_struct);
+	if (ptr_struct->spec == 'p')
+	{
+		ft_putchar_fd('0', 1);
+		ft_putchar_fd('x', 1);
+		ptr_struct->toprint_len += 2;
+	}
 	if (ptr_struct->spec == 'c')
 		print_c(ptr_struct->toprint_c);
 	else
