@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/08 16:41:41 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/11 08:30:35 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_convert_s(char *toconvert, t_struct *ptr_struct)
 
 char	*ft_convert_p(void *toconvert, t_struct *ptr_struct)
 {
-	return (ft_itoa_base(&toconvert, "0123456789abcdef"));
+	return (ft_itoa_base(toconvert, "0123456789abcdef"));
 }
 
 char 	*ft_convert_di(int nb, t_struct *ptr_struct)

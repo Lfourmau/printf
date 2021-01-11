@@ -6,7 +6,7 @@
 /*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:27:05 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/08 18:07:12 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/11 08:31:08 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ int main()
 	printf("ca fait %15c ans que je  travaille sur printf\n", 65);
 
 	printf("\\\\\\\033[92mTEST x avec 012.3\033[0m///\n");
-	ft_printf("\033[33mca fait %012.3x ans que je  travaille sur printf\n\033[0m", 65);
-	printf("ca fait %012.3x ans que je  travaille sur printf\n", 65);
+	ft_printf("\033[33mca fait %012.3x ans que je  travaille sur printf\n\033[0m", 255);
+	printf("ca fait %012.3x ans que je  travaille sur printf\n", 255);
 
 	printf("\\\\\\\033[92mTEST X avec 012.3\033[0m///\n");
-	ft_printf("\033[33mca fait %012.3X ans que je  travaille sur printf\n\033[0m", 65);
-	printf("ca fait %012.3X ans que je  travaille sur printf\n", 65);
+	ft_printf("\033[33mca fait %012.3X ans que je  travaille sur printf\n\033[0m", 255);
+	printf("ca fait %012.3X ans que je  travaille sur printf\n", 255);
 
 	printf("\\\\\\\033[92mTEST p\033[0m///\n");
 	ft_printf("\033[33mca fait %p ans que je  travaille sur printf\n\033[0m", &testP);
