@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_manip.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:44:02 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/11 10:03:53 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/11 17:01:34 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,6 @@ void	struct_init(t_struct *ptr_struct)
 	ptr_struct->width = 0;
 	ptr_struct->precision = 0;
 	ptr_struct->spec = 0;
+	ptr_struct->nbzero = 0;
+	ptr_struct->nbspaces = 0;
 }

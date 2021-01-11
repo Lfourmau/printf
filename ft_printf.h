@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:10:08 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/11 15:21:05 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/11 17:20:00 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,9 @@ int			ft_isintspec(char c);
 char		*parse_total(char *toparse, t_struct *ptr_struct);
 void		final_print(t_struct *ptr_struct);
 void		struct_init(t_struct *ptr_struct);
+void    	ft_nbspaces(t_struct *ptr_struct);
+void    	ft_nbzero(t_struct *ptr_struct);
+int		ft_min(int nb1, int nb2);
+int		ft_max(int nb1, int nb2);
+
 #endif

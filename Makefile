@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-SRCS = print.c ft_printf.c struct_manip.c parsing.c conversions.c app_flags.c ft_isit.c
+SRCS = print.c ft_printf.c struct_manip.c parsing.c conversions.c app_flags.c ft_isit.c comp.c
 
 GCCF = gcc -Wall -Werror -Wextra
 
@@ -38,4 +38,4 @@ fclean : clean
 re : fclean all
 
 
-.PHONY : all clean fclean re othermake
+.PHONY : all clean fclean re

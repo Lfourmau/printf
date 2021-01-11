@@ -6,27 +6,26 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 14:39:38 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/11 13:20:14 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/11 17:41:50 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_c(char toprint_c) //pour afficher char
+void	print_c(char toprint_c)
 {
 	ft_putchar_fd(toprint_c, 1);
 }
 
-void	print_string(t_struct *ptr_struct) //pour afficher str
+void	print_string(t_struct *ptr_struct)
 {
 	int i;
 
 	i = 0;
-	if (ptr_struct->precision)
+	if (ptr_struct->spec == 's')
 	{
-		while (i < ptr_struct->precision && ptr_struct->toprint[i])
+		while (i < ft_min(ptr_struct->toprint_len, ptr_struct->precision) && ptr_struct->toprint[i])
 		{
-		//	printf("|>>%d<< [%d] {%d}|", ptr_struct->return_val, ptr_struct->toprint[i], i);
 			ft_putchar_fd(ptr_struct->toprint[i], 1);
 			ptr_struct->return_val++;
 			i++;
@@ -34,8 +33,12 @@ void	print_string(t_struct *ptr_struct) //pour afficher str
 	}
 	else
 	{
-		ft_putstr_fd(ptr_struct->toprint, 1);
-		ptr_struct->return_val += ptr_struct->initial_len;
+		while (ptr_struct->toprint[i])
+		{
+			ft_putchar_fd(ptr_struct->toprint[i], 1);
+			ptr_struct->return_val++;
+			i++;
+		}
 	}
 }
 
