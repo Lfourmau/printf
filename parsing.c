@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:26:29 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/08 18:07:19 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/11 13:53:23 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,15 @@ char	*parse_width(char *toparse, t_struct *ptr_struct) //toparse == resultat de 
 	else if (*toparse == '*')
 	{
 		ptr_struct->width = va_arg(ptr_struct->ap, int);
-		if (ptr_struct->width < 0)
-			ptr_struct->width = 0;
+		toparse++;
 	}
+	if (ptr_struct->width < 0)
+	{
+		ptr_struct->flags[0] = 1;
+		ptr_struct->width *= -1;
+	}
+		// printf("Mon cul sur la balayette ! : [%d] [%d]\n", ptr_struct->width, ptr_struct->precision);
+		// return(NULL);
 	return (toparse);
 }
 
@@ -65,20 +71,24 @@ char	*parse_precision(char *toparse, t_struct *ptr_struct)
 			start = toparse;
 			while (ft_isdigit(*toparse))
 				toparse++;
-		//malloc a proteger
-		my_precision = malloc(toparse - start) + 1;
-		ft_strlcpy(my_precision, start, toparse - start + 1);
-		ptr_struct->precision = ft_atoi(my_precision);
-		//free(my_prec);
+			//malloc a proteger
+			my_precision = malloc(toparse - start) + 1;
+			ft_strlcpy(my_precision, start, toparse - start + 1);
+			ptr_struct->precision = ft_atoi(my_precision);
+			//free(my_prec);
 		}
 		else if (*toparse == '*')
 		{
 			ptr_struct->precision = va_arg(ptr_struct->ap, int);
-			if (ptr_struct->precision < 0)
-				ptr_struct->precision = 0;
+			toparse++;
 		}
+		if (ptr_struct->precision < 0)
+		{
+		//	ptr_struct->point = 0;
+			ptr_struct->precision = 0;
+		}
+	//	printf("%d] [%d]\n", ptr_struct->width, ptr_struct->precision);
 	}
-	//toparse++;
 	return (toparse);
 }
 

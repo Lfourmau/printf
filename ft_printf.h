@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:10:08 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/08 16:41:18 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/11 15:21:05 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,21 @@
 
 typedef struct	s_struct
 {
-	va_list ap;
-	char	*toprint;
-	char	toprint_c;
-   	int 	toprint_len;
-   	int 	initial_len;
-	int		flags[5];
-	int		width;
-	int		precision;
-	char	spec;
+	va_list		ap;
+	char		*toprint;
+	char		toprint_c;
+	int			toprint_len;
+	int			initial_len;
+	int			flags[5];
+	int			width;
+	int			precision;
+	int			len_or_prec;
+	int			min;
+	int			max;
+	int			nbspaces;
+	int			nbzero;
+	int			return_val;
+	char		spec;
 }				t_struct;
 
 int			ft_printf(const char *format, ...);

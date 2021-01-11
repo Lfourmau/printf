@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conversions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/11 08:30:35 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/11 14:09:26 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_convert_s(char *toconvert, t_struct *ptr_struct)
 
 char	*ft_convert_p(void *toconvert, t_struct *ptr_struct)
 {
-	return (ft_itoa_base(toconvert, "0123456789abcdef"));
+	return (ft_itoa_base((unsigned long long)toconvert, "0123456789abcdef"));
 }
 
 char 	*ft_convert_di(int nb, t_struct *ptr_struct)
@@ -49,8 +49,9 @@ char	*ft_convert_xX(unsigned int nb, t_struct *ptr_struct)
 void	convert_all(t_struct *ptr_struct)
 {
 	size_t len;
+
 	if (ptr_struct->spec == 'c')
-		ptr_struct->toprint_c = (char)va_arg(ptr_struct->ap, int);
+		ptr_struct->toprint_c = va_arg(ptr_struct->ap, int);
 	if (ptr_struct->spec == 's')
 		ptr_struct->toprint = ft_convert_s(va_arg(ptr_struct->ap, char *), ptr_struct);
 	if (ptr_struct->spec == 'p')

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 14:04:10 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/07 13:16:25 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/11 15:05:25 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int	ft_isspec(char c)
 
 int ft_isintspec(char c)
 {
-	return (c == 'i' || c== 'u' || c == 'x' || c == 'X' || c == 'd');
+	return (c == 'i' || c == 'u' || c == 'x' || c == 'X' || c == 'd');
 }

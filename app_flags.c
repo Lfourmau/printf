@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   app_flags.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfourmau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 14:01:33 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/08 18:07:16 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/11 14:03:19 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,32 @@ void	print_width_back(t_struct *ptr_struct)
 		{
 			ft_putchar_fd(' ', 1);
 			i++;
+			ptr_struct->return_val++;
 		}
 	}
 }
 
-
 void	print_width_front(t_struct *ptr_struct)
 {
-	int i =  0;
+	int i;
+
+	i = 0;
 	if (ptr_struct->spec == 'c')
 		i++;
-		while (i < ptr_struct->width - ptr_struct->precision && ptr_struct->flags[0] == 0)
+	while (i < ptr_struct->width - ptr_struct->precision && ptr_struct->flags[0] == 0)
+	{
+		if (ptr_struct->toprint_len < ptr_struct->width)
 		{
-			if (ptr_struct->toprint_len < ptr_struct->width)
-			{
-				ft_putchar_fd(' ', 1);
-			}
-			i++;
+			ft_putchar_fd(' ', 1);
+			ptr_struct->return_val++;
 		}
-		i = 0;
-		while (i < ptr_struct->toprint_len - ptr_struct->initial_len)
-		{
-			ft_putchar_fd('0', 1);
-			i++;
-		}
+		i++;
+	}
+	i = 0;
+	while (i < ptr_struct->toprint_len - ptr_struct->initial_len)
+	{
+		ft_putchar_fd('0', 1);
+		ptr_struct->return_val++;
+		i++;
+	}
 }
