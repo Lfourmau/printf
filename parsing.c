@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:26:29 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/12 14:28:32 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 17:52:12 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char	*parse_precision(char *toparse, t_struct *ptr_struct)
 
 char	*parse_spec(char *toparse, t_struct *ptr_struct)
 {
-	if (ptr_struct->flags[0])
+	if (ptr_struct->flags[0] == 1 && ptr_struct->flags[1] == 1)
 		ptr_struct->flags[1] = 0;
 	if (ft_isspec(*toparse))
 		ptr_struct->spec = *toparse;

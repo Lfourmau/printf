@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/12 15:37:34 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 18:39:57 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 char	*ft_convert_s(char *toconvert, t_struct *ptr_struct)
 {
+	if (!toconvert)
+		return (ft_strdup("(null)"));
 	return (ft_strdup(toconvert)); //ok
 }
 
@@ -36,10 +38,7 @@ char 	*ft_convert_di(long long int nb, t_struct *ptr_struct)
 
 char	*ft_convert_u(unsigned int nb, t_struct *ptr_struct)
 {
-	char *tmp;
-
-	tmp = ft_itoa_base(nb, "0123456789");
-	return (tmp);
+	return (ft_itoa_base(nb, "0123456789"));
 }
 
 char	*ft_convert_xX(unsigned int nb, t_struct *ptr_struct)

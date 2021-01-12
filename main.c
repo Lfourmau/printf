@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:27:05 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/12 15:31:57 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 18:35:19 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ int main()
 {
 	int testP = 5;
 	printf("\\\\\\\033[92mTEST\033[0m///\n");
-	printf("return : [%d]\n",ft_printf("0*|%0-*.*d|*0 0*|%0*.*d|*0]\n", 2, 6, 102, 21, 10, -101));
-	printf("return : [%d]\n",printf("0*|%0-*.*d|*0 0*|%0*.*d|*0]\n", 2, 6, 102, 21, 10, -101));
+	printf("return : [%d]\n",ft_printf(" %10p %10p ", 1, -1));
+	printf("return : [%d]\n",printf(" %10p %10p ", 1, -1));
 
 	
 	printf("[%s]\n",ft_itoa_base(-45, "0123456789"));
 	printf("\\\\\\\033[92mTEST\033[0m///\n");
-	printf("return : [%d]\n",ft_printf("|%09.2d|", UINT_MAX));
-	printf("return : [%d]\n",printf("|%09.2d|", UINT_MAX));
+	printf("return : [%d]\n",ft_printf(" 0*%0-*d*0 0*%0*d*0 ", 21, 1021, 21, -1011));
+	printf("return : [%d]\n",printf(" 0*%0-*d*0 0*%0*d*0 ", 21, 1021, 21, -1011));
 
 	 printf("\\\\\\\033[92mTEST d -14.6 et s 20.4\033[0m///\n");
 	 printf("return : [%d]\n", ft_printf("ca fait |%-14.6d| ans que je %20.4s travaille sur printf\n", 25, "BRISE DES MERES"));

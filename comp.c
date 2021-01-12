@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:11:07 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/12 15:38:27 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 18:12:23 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void    ft_nbzero(t_struct *ptr_struct)
 	if (ft_isintspec(ptr_struct->spec))
 	{
 		if (ptr_struct->toprint_len < ptr_struct->precision)
-			ptr_struct->nbzero = ptr_struct->precision - ptr_struct->toprint_len;
+			ptr_struct->nbzero = ptr_struct->precision - ptr_struct->toprint_len;		
 	}
 	else if (ptr_struct->spec == 'p')
 		ptr_struct->nbzero = 0;
@@ -62,4 +62,6 @@ void    ft_nbspaces(t_struct *ptr_struct)
 		ptr_struct->nbspaces = ptr_struct->width;
 	if (ptr_struct->neg == 1)
 		ptr_struct->nbspaces--;
+	else if (ptr_struct->toprint && *ptr_struct->toprint == '0' && ft_isintspec(ptr_struct->spec) && ptr_struct->precision == 0 && ptr_struct->width != 0)
+		ptr_struct->nbspaces++;
 }

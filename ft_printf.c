@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:08:03 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/11 13:17:03 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 17:18:11 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,10 @@ int	ft_printf(const char *format, ...)
 	{
 		while (*format && *format != '%')
 		{
-			//printf("\n>%c< [%d]\n", *format,  ptr_struct->return_val);
 			ft_putchar_fd(*format, 1);
 			format++;
 			ptr_struct->return_val++;
 		}
-		//printf(" [%d] ", ptr_struct->return_val);
 		if (*format)
 		{
 			struct_init(ptr_struct);
@@ -40,7 +38,6 @@ int	ft_printf(const char *format, ...)
 			final_print(ptr_struct);
 			format = cursor;
 		}
-		//printf(" [%d] ", ptr_struct->return_val);
 	}
 	va_end(ap);
 	free(ptr_struct);

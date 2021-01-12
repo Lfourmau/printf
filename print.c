@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 14:39:38 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/12 14:54:00 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 18:36:20 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ void	print_string(t_struct *ptr_struct)
 
 void	final_print(t_struct *ptr_struct)
 {
+	if (ptr_struct->width && ptr_struct->flags[2] == 0 && ptr_struct->flags[0] == 0 && ft_isintspec(ptr_struct->spec))
+	{
+		ptr_struct->nbzero = ptr_struct->nbspaces;
+		ptr_struct->nbspaces = 0;
+	}
 	print_width_front(ptr_struct);
 	if (ptr_struct->spec == 'p')
 	{
