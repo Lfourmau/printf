@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:26:29 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/11 17:06:04 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 14:28:32 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ char	*parse_precision(char *toparse, t_struct *ptr_struct)
 
 	if (*toparse == '.')
 	{
+		ptr_struct->flags[2] = 1;
 		toparse++;//cest un ., donc je vais derriere pour voir les chiffres
 		if (ft_isdigit(*toparse))
 		{
@@ -84,7 +85,7 @@ char	*parse_precision(char *toparse, t_struct *ptr_struct)
 		}
 		if (ptr_struct->precision < 0)
 		{
-		//	ptr_struct->point = 0;
+			ptr_struct->flags[2] = 0;
 			ptr_struct->precision = 0;
 		}
 	//	printf("%d] [%d]\n", ptr_struct->width, ptr_struct->precision);
@@ -94,6 +95,8 @@ char	*parse_precision(char *toparse, t_struct *ptr_struct)
 
 char	*parse_spec(char *toparse, t_struct *ptr_struct)
 {
+	if (ptr_struct->flags[0])
+		ptr_struct->flags[1] = 0;
 	if (ft_isspec(*toparse))
 		ptr_struct->spec = *toparse;
 	toparse++;

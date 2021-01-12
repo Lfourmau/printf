@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 14:39:38 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/11 17:41:50 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 14:54:00 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void	final_print(t_struct *ptr_struct)
 		ptr_struct->return_val += 2;
 		ptr_struct->toprint_len += 2;
 	}
-	if (ptr_struct->spec == 'c')
+	if (ptr_struct->spec == 'c' || ptr_struct->spec == '%')
 	{
 		print_c(ptr_struct->toprint_c);
 		ptr_struct->return_val++;
 	}
-	else
+	else if (!(ptr_struct->flags[2] == 1 && ptr_struct->precision == 0 && *ptr_struct->toprint == '0'))
 		print_string(ptr_struct);
 	print_width_back(ptr_struct);
 }

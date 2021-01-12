@@ -6,27 +6,25 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:27:05 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/11 17:32:06 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 15:31:57 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
 
 int main()
 {
 	int testP = 5;
+	printf("\\\\\\\033[92mTEST\033[0m///\n");
+	printf("return : [%d]\n",ft_printf("0*|%0-*.*d|*0 0*|%0*.*d|*0]\n", 2, 6, 102, 21, 10, -101));
+	printf("return : [%d]\n",printf("0*|%0-*.*d|*0 0*|%0*.*d|*0]\n", 2, 6, 102, 21, 10, -101));
 
-	printf("Test 0 : Cas 0 prec + prec neg\n");
-	 printf("return : [%d]\n",ft_printf("|%.*d| |%.0d|", -1, 0 , 0));
-	printf("return : [%d]\n",printf("|%.*d| |%.0d|", -1, 0 , 0));
-
-	 printf("Test 0 : Where are you\n");
-	 printf("return : [%d]\n",ft_printf("|%-.2d| |%-2.2d|", 0 , 0));
-	printf("return : [%d]\n",printf("|%-.2d| |%-2.2d|", 0 , 0));
-
-	printf("Test 13 : Segfault\n");
-	printf("return : [%d]\n",ft_printf("|%4.2s| |%-4.2s|", "123", "4567"));
-	printf("return : [%d]\n",printf("|%4.2s| |%-4.2s|", "123", "4567"));
+	
+	printf("[%s]\n",ft_itoa_base(-45, "0123456789"));
+	printf("\\\\\\\033[92mTEST\033[0m///\n");
+	printf("return : [%d]\n",ft_printf("|%09.2d|", UINT_MAX));
+	printf("return : [%d]\n",printf("|%09.2d|", UINT_MAX));
 
 	 printf("\\\\\\\033[92mTEST d -14.6 et s 20.4\033[0m///\n");
 	 printf("return : [%d]\n", ft_printf("ca fait |%-14.6d| ans que je %20.4s travaille sur printf\n", 25, "BRISE DES MERES"));

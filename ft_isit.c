@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 14:04:10 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/11 15:05:25 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 13:59:16 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_isflag(char c)
 int	ft_isspec(char c)
 {
 	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u' ||
-		c == 'x' || c == 'X' || c== '%' || c == 'n')
+		c == 'x' || c == 'X' || c== '%')
 		return (1);
 	return (0);
 }

@@ -1,6 +1,7 @@
 NAME = libftprintf.a
 
-SRCS = print.c ft_printf.c struct_manip.c parsing.c conversions.c app_flags.c ft_isit.c comp.c
+SRCS = print.c ft_printf.c struct_manip.c parsing.c conversions.c app_flags.c ft_isit.c comp.c\
+		itoa_base.c itoa_base_p.c
 
 GCCF = gcc -Wall -Werror -Wextra
 
