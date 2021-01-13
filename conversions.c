@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/12 18:39:57 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/13 17:21:09 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ char	*ft_convert_p(void *toconvert, t_struct *ptr_struct)
 char 	*ft_convert_di(long long int nb, t_struct *ptr_struct)
 {
 	if (nb < 0)
-	{
-		ptr_struct->return_val++;
 		ptr_struct->neg = 1;
-	}
 	return (ft_itoa_base(nb, "0123456789")); //ok
 }
 
@@ -52,8 +49,6 @@ char	*ft_convert_xX(unsigned int nb, t_struct *ptr_struct)
 
 void	convert_all(t_struct *ptr_struct)
 {
-	size_t len;
-
 	if (ptr_struct->spec == 'c')
 		ptr_struct->toprint_c = va_arg(ptr_struct->ap, int);
 	if (ptr_struct->spec == '%')
@@ -70,6 +65,17 @@ void	convert_all(t_struct *ptr_struct)
 		ptr_struct->toprint = ft_convert_xX(va_arg(ptr_struct->ap, unsigned int), ptr_struct);
 	if (ptr_struct->toprint)
 		ptr_struct->toprint_len += strlen(ptr_struct->toprint);
-	ft_nbzero(ptr_struct);
-	ft_nbspaces(ptr_struct);
+	else if (ptr_struct->toprint_c)
+		ptr_struct->toprint_len = 1;
+	// ft_nbzero(ptr_struct);
+	// ft_nbspaces(ptr_struct);
+	if (ft_isintspec(ptr_struct->spec) || ptr_struct->spec == 'p')
+	{
+		ft_lencmp(ptr_struct);
+		ft_displ_int(ptr_struct);
+	}
+	else
+		ft_displ_str(ptr_struct);
+	
+	// printf("\nSpc : [%d]\n", ptr_struct->nbspaces);
 }

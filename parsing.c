@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:26:29 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/12 17:52:12 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/13 14:33:25 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,11 @@ char	*parse_flags(char *toparse, t_struct	*ptr_struct) // toparse = ptr sur le %
 
 char	*parse_width(char *toparse, t_struct *ptr_struct) //toparse == resultat de la fct du dessus
 {
-	char *start;
-	long nb_atoi;
-	char *my_width;
-
 	if (ft_isdigit(*toparse))
 	{
-		start = toparse;
+		ptr_struct->width = ft_atoi(toparse);
 		while (ft_isdigit(*toparse))
 			toparse++;
-		//malloc a proteger
-		my_width = malloc(toparse - start) + 1;
-		ft_strlcpy(my_width, start, toparse - start + 1);
-		ptr_struct->width = ft_atoi(my_width);
-		//free(my_width);
 	}
 	else if (*toparse == '*')
 	{
@@ -52,31 +43,20 @@ char	*parse_width(char *toparse, t_struct *ptr_struct) //toparse == resultat de 
 		ptr_struct->flags[0] = 1;
 		ptr_struct->width *= -1;
 	}
-		// printf("Mon cul sur la balayette ! : [%d] [%d]\n", ptr_struct->width, ptr_struct->precision);
-		// return(NULL);
 	return (toparse);
 }
 
 char	*parse_precision(char *toparse, t_struct *ptr_struct)
 {
-	char *start;
-	char *my_precision;
-	long nb_atoi;
-
 	if (*toparse == '.')
 	{
 		ptr_struct->flags[2] = 1;
 		toparse++;//cest un ., donc je vais derriere pour voir les chiffres
 		if (ft_isdigit(*toparse))
 		{
-			start = toparse;
+			ptr_struct->precision = ft_atoi(toparse);
 			while (ft_isdigit(*toparse))
 				toparse++;
-			//malloc a proteger
-			my_precision = malloc(toparse - start) + 1;
-			ft_strlcpy(my_precision, start, toparse - start + 1);
-			ptr_struct->precision = ft_atoi(my_precision);
-			//free(my_prec);
 		}
 		else if (*toparse == '*')
 		{
@@ -88,7 +68,6 @@ char	*parse_precision(char *toparse, t_struct *ptr_struct)
 			ptr_struct->flags[2] = 0;
 			ptr_struct->precision = 0;
 		}
-	//	printf("%d] [%d]\n", ptr_struct->width, ptr_struct->precision);
 	}
 	return (toparse);
 }

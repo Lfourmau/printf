@@ -6,11 +6,20 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:08:03 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/12 17:18:11 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/13 15:47:23 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_free_struct(t_struct *ptr_struct)
+{
+	int return_val;
+
+	return_val = ptr_struct->return_val;
+	free(ptr_struct);
+	return (return_val);
+}
 
 int	ft_printf(const char *format, ...)
 {
@@ -35,11 +44,9 @@ int	ft_printf(const char *format, ...)
 			struct_init(ptr_struct);
 			cursor = parse_total((char *)format, ptr_struct);
 			convert_all(ptr_struct);
-			final_print(ptr_struct);
 			format = cursor;
 		}
 	}
 	va_end(ap);
-	free(ptr_struct);
-	return (ptr_struct->return_val);
+	return (ft_free_struct(ptr_struct));
 }
