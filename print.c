@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 14:39:38 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/13 17:25:43 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/13 18:07:38 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@
 
 void	ft_displ_spc(t_struct *ts, int i)
 {
+	if (ts->spec == 'c' && ts->toprint_c == 0)
+		i--;
 	while (0 < i)
 	{
 		ft_putchar_fd(' ', 1);
@@ -125,6 +127,7 @@ void	ft_displ_int(t_struct *ts)
 	ts->return_val += ts->toprint_len;
 	if (ts->flags[0])
 		ft_displ_spc(ts, ts->width);
+	free (ts->toprint);
 }
 
 void	ft_displ_str(t_struct *ts)
@@ -152,15 +155,27 @@ void	ft_displ_str(t_struct *ts)
 		ft_putstr_fd(ts->toprint, 1);
 		ts->return_val += ts->toprint_len;
 	}
+	if (ts->flags[0])
+		ft_displ_spc(ts, ts->width);
+	free (ts->toprint);
+}
+
+void	ft_displ_char(t_struct *ts)
+{
+	if (ts->width && !ts->flags[2])
+		ts->width -= ts->toprint_len;
+	else if (ts->width)
+		ts->width -= ft_min(ts->precision, ts->toprint_len);
+	if (ts->width && !ts->flags[0] && !ts->flags[1])
+		ft_displ_spc(ts, ts->width);
+	else if (ts->width && !ts->flags[0] && ts->flags[1])
+		ft_displ_zero(ts, ts->width);
+	if (ts->flags[2] && !ts->precision && ts->spec == 'c')
+			ft_putstr_fd(0, 1);
 	else
 	{
-		if (ts->flags[2] && !ts->precision && ts->spec == 'c')
-			ft_putstr_fd(0, 1);
-		else
-		{
-			ft_putchar_fd(ts->toprint_c, 1);
-			ts->return_val++;
-		}
+		ft_putchar_fd(ts->toprint_c, 1);
+		ts->return_val++;
 	}
 	if (ts->flags[0])
 		ft_displ_spc(ts, ts->width);

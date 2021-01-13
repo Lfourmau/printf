@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/13 17:21:09 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/13 17:53:02 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,11 @@ void	convert_all(t_struct *ptr_struct)
 		ft_lencmp(ptr_struct);
 		ft_displ_int(ptr_struct);
 	}
-	else
+	else if (ptr_struct->spec == 's')
 		ft_displ_str(ptr_struct);
+	else
+		ft_displ_char(ptr_struct);
+
 	
 	// printf("\nSpc : [%d]\n", ptr_struct->nbspaces);
 }

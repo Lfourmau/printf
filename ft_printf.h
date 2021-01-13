@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:10:08 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/13 17:12:19 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/13 17:36:26 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ char		*ft_itoa_base_p(unsigned long long nb, char *base);
 void		ft_lencmp(t_struct *ptr_struct);
 void		ft_displ_int(t_struct *ts);
 void		ft_displ_str(t_struct *ts);
+void	ft_displ_char(t_struct *ts);
 
 #endif
