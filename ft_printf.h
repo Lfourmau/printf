@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:10:08 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 11:12:46 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 11:24:16 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char		*ft_convert_s(char *toconvert, t_struct *ts);
 char		*ft_convert_p(void *toconvert, t_struct *ts);
 char		*ft_convert_di(long long int nb, t_struct *ts);
 char		*ft_convert_u(unsigned int nb, t_struct *ts);
-char		*ft_convert_xX(unsigned int nb, t_struct *ts);
+char		*ft_convert_x(unsigned int nb, t_struct *ts);
 void		ft_displ_spc(t_struct *ts, int i);
 void		ft_displ_zero(t_struct *ts, int i);
 void		ft_displ_pre(t_struct *ts);

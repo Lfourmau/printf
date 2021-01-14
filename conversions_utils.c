@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 11:00:49 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 11:03:02 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 11:24:35 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_convert_u(unsigned int nb, t_struct *ts)
 	return (ft_itoa_base(nb, "0123456789"));
 }
 
-char	*ft_convert_xX(unsigned int nb, t_struct *ts)
+char	*ft_convert_x(unsigned int nb, t_struct *ts)
 {
 	if (ts->spec == 'x')
 		return (ft_itoa_base(nb, "0123456789abcdef"));

@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 11:04:05 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 11:24:29 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	convert_all(t_struct *ts)
 	if (ts->spec == 'u')
 		ts->toprint = ft_convert_u(va_arg(ts->ap, unsigned int), ts);
 	if (ts->spec == 'x' || ts->spec == 'X')
-		ts->toprint = ft_convert_xX(va_arg(ts->ap, unsigned int), ts);
+		ts->toprint = ft_convert_x(va_arg(ts->ap, unsigned int), ts);
 	if (ts->toprint)
 		ts->toprint_len += strlen(ts->toprint);
 	else if (ts->toprint_c)
