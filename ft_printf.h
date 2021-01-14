@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: loic <loic@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:10:08 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 13:51:09 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 18:43:49 by loic             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ void			ft_lencmp(t_struct *ts);
 void			ft_displ_int(t_struct *ts);
 void			ft_displ_str(t_struct *ts);
 void			ft_displ_char(t_struct *ts);
-char			*ft_convert_s(char *toconvert, t_struct *ts);
-char			*ft_convert_p(void *toconvert, t_struct *ts);
+char			*ft_convert_s(char *toconvert);
+char			*ft_convert_p(void *toconvert);
 char			*ft_convert_di(long long int nb, t_struct *ts);
-char			*ft_convert_u(unsigned int nb, t_struct *ts);
+char			*ft_convert_u(unsigned int nb);
 char			*ft_convert_x(unsigned int nb, t_struct *ts);
 void			ft_displ_spc(t_struct *ts, int i);
 void			ft_displ_zero(t_struct *ts, int i);

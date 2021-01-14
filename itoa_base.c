@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   itoa_base.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: loic <loic@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 14:15:38 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 13:14:10 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 18:47:38 by loic             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int		ft_count(long long int nb, char *base)
 
 static void		ft_recursive(long long int nb, char *str, char *base, int index)
 {
-	if (nb >= ft_strlen(base))
+	if (nb >= (long int)ft_strlen(base))
 		ft_recursive(nb / (long int)ft_strlen(base), str, base, index - 1);
 	str[index] = base[nb % (long int)ft_strlen(base)];
 }

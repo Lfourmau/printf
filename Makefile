@@ -1,42 +1,45 @@
+LIBFT = ./libft/libft.a
+
 NAME = libftprintf.a
 
-SRCS = print.c ft_printf.c struct_manip.c parsing.c conversions.c ft_isit.c comp.c\
-		itoa_base.c itoa_base_p.c conversions_utils.c displ_utils.c
+SRCS =  ft_printf.c \
+		print.c \
+		itoa_base.c \
+		itoa_base_p.c \
+		conversions.c \
+		conversions_utils.c \
+		displ_utils.c \
+		parsing.c \
+		ft_isit.c \
+		comp.c \
+		struct_manip.c \
 
-GCCF = gcc -Wall -Werror -Wextra
+GCCF = gcc -c -Wall -Wextra -Werror
 
-OBJS = ${SRCS:.c=.o}
+INCLUDE = ft_printf.h
 
-_END = \033[0m
-_DIM = \033[2m
-_YELLOW = \033[33m
-_GREEN = \033[92m
-_RED = \033[91m
-_ROSE = \033[95m
-_CYAN = \033[96m
+OBJS = $(SRCS:.c=.o)
 
+%.o: %.c $(INCLUDE)
+	$(GCCF) -c $< -o $(<:.c=.o)
 
-
-
-%o : %.c ft_printf.h
-	${GCCF} -c $< -o $@
-
-$(NAME) : ${OBJS}
-	$(MAKE) -C libft/
+$(NAME): $(OBJS)
+	$(MAKE) -C ./libft
 	cp libft/libft.a $(NAME)
-	ar -rc ${NAME} $?
+	$(GCCF) $(SRCS)
+	ar -rcs $(NAME) $(OBJS)
 
-all : ${NAME}
+all : $(NAME)
 
 clean :
-	rm -f ${OBJS}
-	cd libft/ && make clean
+	$(MAKE) clean -C ./libft 
+	rm -f *.o
 
 fclean : clean
+	$(MAKE) fclean -C ./libft
+	rm -f *.o
 	rm -f ${NAME}
-	cd libft/ && make fclean
 
 re : fclean all
 
-
-.PHONY : all clean fclean re
+.PHONY: clean fclean re all

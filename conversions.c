@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conversions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: loic <loic@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 13:40:43 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 18:43:11 by loic             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ void	convert_all(t_struct *ts)
 	if (ts->spec == '%')
 		ts->toprint_c = '%';
 	if (ts->spec == 's')
-		ts->toprint = ft_convert_s(va_arg(ts->ap, char *), ts);
+		ts->toprint = ft_convert_s(va_arg(ts->ap, char *));
 	if (ts->spec == 'p')
-		ts->toprint = ft_convert_p(va_arg(ts->ap, void *), ts);
+		ts->toprint = ft_convert_p(va_arg(ts->ap, void *));
 	if (ts->spec == 'd' || ts->spec == 'i')
 		ts->toprint = ft_convert_di(va_arg(ts->ap, int), ts);
 	if (ts->spec == 'u')
-		ts->toprint = ft_convert_u(va_arg(ts->ap, unsigned int), ts);
+		ts->toprint = ft_convert_u(va_arg(ts->ap, unsigned int));
 	if (ts->spec == 'x' || ts->spec == 'X')
 		ts->toprint = ft_convert_x(va_arg(ts->ap, unsigned int), ts);
 	if (ts->toprint)
