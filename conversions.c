@@ -6,79 +6,44 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/13 17:53:02 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 11:04:05 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//pas de convert_c = elle se fait seule  pendant affchage comme putchar
-
-char	*ft_convert_s(char *toconvert, t_struct *ptr_struct)
+void	ft_display(t_struct *ts)
 {
-	if (!toconvert)
-		return (ft_strdup("(null)"));
-	return (ft_strdup(toconvert)); //ok
-}
-
-char	*ft_convert_p(void *toconvert, t_struct *ptr_struct)
-{
-	return (ft_itoa_base_p((unsigned long long)toconvert, "0123456789abcdef"));
-}
-
-char 	*ft_convert_di(long long int nb, t_struct *ptr_struct)
-{
-	if (nb < 0)
-		ptr_struct->neg = 1;
-	return (ft_itoa_base(nb, "0123456789")); //ok
-}
-
-char	*ft_convert_u(unsigned int nb, t_struct *ptr_struct)
-{
-	return (ft_itoa_base(nb, "0123456789"));
-}
-
-char	*ft_convert_xX(unsigned int nb, t_struct *ptr_struct)
-{
-	if (ptr_struct->spec == 'x')
-		return (ft_itoa_base(nb, "0123456789abcdef")); //ok
-	else
-		return(ft_itoa_base(nb, "0123456789ABCDEF")); //ok
-
-}
-
-void	convert_all(t_struct *ptr_struct)
-{
-	if (ptr_struct->spec == 'c')
-		ptr_struct->toprint_c = va_arg(ptr_struct->ap, int);
-	if (ptr_struct->spec == '%')
-		ptr_struct->toprint_c = '%';
-	if (ptr_struct->spec == 's')
-		ptr_struct->toprint = ft_convert_s(va_arg(ptr_struct->ap, char *), ptr_struct);
-	if (ptr_struct->spec == 'p')
-		ptr_struct->toprint = ft_convert_p(va_arg(ptr_struct->ap, void *), ptr_struct);
-	if (ptr_struct->spec == 'd' || ptr_struct->spec == 'i')
-		ptr_struct->toprint = ft_convert_di(va_arg(ptr_struct->ap, int), ptr_struct);
-	if (ptr_struct->spec == 'u')
-		ptr_struct->toprint = ft_convert_u(va_arg(ptr_struct->ap, unsigned int), ptr_struct);
-	if (ptr_struct->spec == 'x' || ptr_struct->spec == 'X')
-		ptr_struct->toprint = ft_convert_xX(va_arg(ptr_struct->ap, unsigned int), ptr_struct);
-	if (ptr_struct->toprint)
-		ptr_struct->toprint_len += strlen(ptr_struct->toprint);
-	else if (ptr_struct->toprint_c)
-		ptr_struct->toprint_len = 1;
-	// ft_nbzero(ptr_struct);
-	// ft_nbspaces(ptr_struct);
-	if (ft_isintspec(ptr_struct->spec) || ptr_struct->spec == 'p')
+	if (ft_isintspec(ts->spec) || ts->spec == 'p')
 	{
-		ft_lencmp(ptr_struct);
-		ft_displ_int(ptr_struct);
+		ft_lencmp(ts);
+		ft_displ_int(ts);
 	}
-	else if (ptr_struct->spec == 's')
-		ft_displ_str(ptr_struct);
+	else if (ts->spec == 's')
+		ft_displ_str(ts);
 	else
-		ft_displ_char(ptr_struct);
+		ft_displ_char(ts);
+}
 
-	
-	// printf("\nSpc : [%d]\n", ptr_struct->nbspaces);
+void	convert_all(t_struct *ts)
+{
+	if (ts->spec == 'c')
+		ts->toprint_c = va_arg(ts->ap, int);
+	if (ts->spec == '%')
+		ts->toprint_c = '%';
+	if (ts->spec == 's')
+		ts->toprint = ft_convert_s(va_arg(ts->ap, char *), ts);
+	if (ts->spec == 'p')
+		ts->toprint = ft_convert_p(va_arg(ts->ap, void *), ts);
+	if (ts->spec == 'd' || ts->spec == 'i')
+		ts->toprint = ft_convert_di(va_arg(ts->ap, int), ts);
+	if (ts->spec == 'u')
+		ts->toprint = ft_convert_u(va_arg(ts->ap, unsigned int), ts);
+	if (ts->spec == 'x' || ts->spec == 'X')
+		ts->toprint = ft_convert_xX(va_arg(ts->ap, unsigned int), ts);
+	if (ts->toprint)
+		ts->toprint_len += strlen(ts->toprint);
+	else if (ts->toprint_c)
+		ts->toprint_len = 1;
+	ft_display(ts);
 }

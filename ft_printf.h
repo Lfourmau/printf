@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:10:08 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/13 17:36:26 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 11:12:46 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,26 @@ typedef struct	s_struct
 }				t_struct;
 
 int			ft_printf(const char *format, ...);
-void		print_width_front(t_struct *ptr_struct);
-void		print_width_back(t_struct *ptr_struct);
-void		convert_all(t_struct *ptr_struct);
+void		convert_all(t_struct *ts);
 int			ft_isflag(char c);
 int			ft_isspec(char c);
 int			ft_isintspec(char c);
-char		*parse_total(char *toparse, t_struct *ptr_struct);
-void		final_print(t_struct *ptr_struct);
-void		struct_init(t_struct *ptr_struct);
-void		ft_nbspaces(t_struct *ptr_struct);
-void		ft_nbzero(t_struct *ptr_struct);
+char		*parse_total(char *toparse, t_struct *ts);
+void		struct_init(t_struct *ts);
 int			ft_min(int nb1, int nb2);
 int			ft_max(int nb1, int nb2);
 char		*ft_itoa_base(long long int nb, char *base);
 char		*ft_itoa_base_p(unsigned long long nb, char *base);
-void		ft_lencmp(t_struct *ptr_struct);
+void		ft_lencmp(t_struct *ts);
 void		ft_displ_int(t_struct *ts);
 void		ft_displ_str(t_struct *ts);
-void	ft_displ_char(t_struct *ts);
-
+void		ft_displ_char(t_struct *ts);
+char		*ft_convert_s(char *toconvert, t_struct *ts);
+char		*ft_convert_p(void *toconvert, t_struct *ts);
+char		*ft_convert_di(long long int nb, t_struct *ts);
+char		*ft_convert_u(unsigned int nb, t_struct *ts);
+char		*ft_convert_xX(unsigned int nb, t_struct *ts);
+void		ft_displ_spc(t_struct *ts, int i);
+void		ft_displ_zero(t_struct *ts, int i);
+void		ft_displ_pre(t_struct *ts);
 #endif

@@ -6,92 +6,93 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:26:29 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/13 14:33:25 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 11:12:56 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*parse_flags(char *toparse, t_struct	*ptr_struct) // toparse = ptr sur le % de la chaine ?
+char	*parse_flags(char *toparse, t_struct *ts)
 {
 	while (ft_isflag(*toparse))
 	{
 		if (*toparse == '-')
-			ptr_struct->flags[0] = 1;
+			ts->flags[0] = 1;
 		if (*toparse == '0')
-			ptr_struct->flags[1] = 1;
+			ts->flags[1] = 1;
 		toparse++;
 	}
-	return (toparse); //pour reprendre de la ou on s'est arrete a la fct suivante
+	return (toparse);
 }
 
-char	*parse_width(char *toparse, t_struct *ptr_struct) //toparse == resultat de la fct du dessus
+char	*parse_width(char *toparse, t_struct *ts)
 {
 	if (ft_isdigit(*toparse))
 	{
-		ptr_struct->width = ft_atoi(toparse);
+		ts->width = ft_atoi(toparse);
 		while (ft_isdigit(*toparse))
 			toparse++;
 	}
 	else if (*toparse == '*')
 	{
-		ptr_struct->width = va_arg(ptr_struct->ap, int);
+		ts->width = va_arg(ts->ap, int);
 		toparse++;
 	}
-	if (ptr_struct->width < 0)
+	if (ts->width < 0)
 	{
-		ptr_struct->flags[0] = 1;
-		ptr_struct->width *= -1;
+		ts->flags[0] = 1;
+		ts->width *= -1;
 	}
 	return (toparse);
 }
 
-char	*parse_precision(char *toparse, t_struct *ptr_struct)
+char	*parse_precision(char *toparse, t_struct *ts)
 {
 	if (*toparse == '.')
 	{
-		ptr_struct->flags[2] = 1;
-		toparse++;//cest un ., donc je vais derriere pour voir les chiffres
+		ts->flags[2] = 1;
+		toparse++;
 		if (ft_isdigit(*toparse))
 		{
-			ptr_struct->precision = ft_atoi(toparse);
+			ts->precision = ft_atoi(toparse);
 			while (ft_isdigit(*toparse))
 				toparse++;
 		}
 		else if (*toparse == '*')
 		{
-			ptr_struct->precision = va_arg(ptr_struct->ap, int);
+			ts->precision = va_arg(ts->ap, int);
 			toparse++;
 		}
-		if (ptr_struct->precision < 0)
+		if (ts->precision < 0)
 		{
-			ptr_struct->flags[2] = 0;
-			ptr_struct->precision = 0;
+			ts->flags[2] = 0;
+			ts->precision = 0;
 		}
 	}
 	return (toparse);
 }
 
-char	*parse_spec(char *toparse, t_struct *ptr_struct)
+char	*parse_spec(char *toparse, t_struct *ts)
 {
-	if (ptr_struct->flags[0] == 1 && ptr_struct->flags[1] == 1)
-		ptr_struct->flags[1] = 0;
+	if (ts->flags[0] == 1 && ts->flags[1] == 1)
+		ts->flags[1] = 0;
 	if (ft_isspec(*toparse))
-		ptr_struct->spec = *toparse;
+		ts->spec = *toparse;
 	toparse++;
 	return (toparse);
 }
 
-char	*parse_total(char *toparse, t_struct *ptr_struct)
+char	*parse_total(char *toparse, t_struct *ts)
 {
 	char *parse_next;
+
 	toparse++;
 	if (*toparse)
 	{
-		parse_next = parse_flags(toparse, ptr_struct);
-		parse_next = parse_width(parse_next, ptr_struct);
-		parse_next = parse_precision(parse_next, ptr_struct);
-		toparse = parse_spec(parse_next, ptr_struct);
+		parse_next = parse_flags(toparse, ts);
+		parse_next = parse_width(parse_next, ts);
+		parse_next = parse_precision(parse_next, ts);
+		toparse = parse_spec(parse_next, ts);
 	}
 	return (toparse);
 }

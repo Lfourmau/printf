@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 14:15:38 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/12 14:22:35 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 11:17:26 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ static int		ft_count(unsigned long long nb, char *base)
 	return (i);
 }
 
-static void	ft_recursive(unsigned long long nb, char *str, char *base, int index)
+static void	ft_recursive(unsigned long long nb, char *str, char *base, int indx)
 {
 	if (nb >= ft_strlen(base))
-		ft_recursive(nb / ft_strlen(base), str, base, index - 1);
-	str[index] = base[nb % ft_strlen(base)];
+		ft_recursive(nb / ft_strlen(base), str, base, indx - 1);
+	str[indx] = base[nb % ft_strlen(base)];
 }
 
 char	*ft_itoa_base_p(unsigned long long nb, char *base)
