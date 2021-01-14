@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 14:15:38 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 11:28:42 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 13:14:02 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ char			*ft_itoa_base_p(unsigned long long nb, char *base)
 	int		index;
 
 	index = ft_count(nb, base);
-	str = malloc(sizeof(char) * (index + 1));
+	if (!(str = malloc(sizeof(char) * (index + 1))))
+		return (NULL);
 	if (nb < 0)
 	{
 		str[0] = '-';

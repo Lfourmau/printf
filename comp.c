@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:11:07 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 11:05:29 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 13:35:38 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	ft_lencmp(t_struct *ts)
 	{
 		if (ts->width)
 			ts->width++;
-		ts->toprint = "";
+		free(ts->toprint);
+		ts->toprint = ft_strdup("");
 		ts->toprint_len = 0;
 	}
 	else if (!ts->flags[2] && !ts->precision && ts->flags[1] && !ts->flags[0])

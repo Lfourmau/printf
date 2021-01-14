@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:39:06 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 11:24:29 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 13:40:43 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,7 @@ void	convert_all(t_struct *ts)
 		ts->toprint_len += strlen(ts->toprint);
 	else if (ts->toprint_c)
 		ts->toprint_len = 1;
+	if (!ts->toprint && !ft_strchr("c%", ts->spec))
+		return ;
 	ft_display(ts);
 }

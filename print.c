@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 14:39:38 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 11:15:02 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 13:34:40 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_displ_int(t_struct *ts)
 	ts->return_val += ts->toprint_len;
 	if (ts->flags[0])
 		ft_displ_spc(ts, ts->width);
-	//free(ts->toprint);
+	free(ts->toprint);
 }
 
 void	ft_displ_char(t_struct *ts)

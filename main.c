@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:27:05 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 10:55:59 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 13:41:17 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,20 @@ int		ft_main(void)
 	print_res(ft_printf(" -|%-2c|* -|%2c|* ", 0, 0));
 	print_res(printf(" -|%-2c|* -|%2c|* ", 0, 0));
 	o________________________________o("d -14.6 et s 20.4");
-	print_res(ft_printf("|%-3d|", 0));
-	print_res(printf("|%-3d|", 0));
+	print_res(ft_printf(" %.d ", 0));
+	print_res(printf(" %.d ", 0));
 	o________________________________o("");
-	print_res(ft_printf("|%2d|", 33));
-	print_res(printf("|%2d|", 33));
+	print_res(ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -2, 0, 21, 1));
+	print_res(printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -2, 0, 21, 1));
 	o________________________________o("");
-	print_res(ft_printf("|%3d|", -14));
-	print_res(printf("|%3d|", -14));
+	print_res(ft_printf("%010.0d", UINT_MAX + 1));
+	print_res(printf("%010.0d", UINT_MAX + 1));
 	o________________________________o("d -14.6 et s 20.4");
-	print_res(ft_printf("|%d|", 0));
-	print_res(printf("|%d|", 0));
+	print_res(ft_printf("%09.0d", UINT_MAX + 1));
+	print_res(printf("%09.0d", UINT_MAX + 1));
 	o________________________________o("d -14.6 et s 20.4");
-	print_res(ft_printf("|%-d|", 0));
-	print_res(printf("|%-d|", 0));
+	print_res(ft_printf("%011.0d", UINT_MAX + 1));
+	print_res(printf("%011.0d", UINT_MAX + 1));
 	o________________________________o("d 14.6");
 	print_res(ft_printf("|%14.6d|", 25));
 	print_res(printf("|%14.6d|", 25));
