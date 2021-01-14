@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 10:08:03 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 13:32:45 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 13:49:28 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	ft_free_struct(t_struct *ts)
 
 int	ft_printf(const char *format, ...)
 {
-	char		*cursor;
 	va_list		ap;
 	t_struct	*ts;
 
@@ -42,9 +41,8 @@ int	ft_printf(const char *format, ...)
 		if (*format)
 		{
 			struct_init(ts);
-			cursor = parse_total((char *)format, ts);
+			format = parse_total((char *)format, ts);
 			convert_all(ts);
-			format = cursor;
 		}
 	}
 	va_end(ap);

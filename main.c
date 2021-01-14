@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:27:05 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 13:41:17 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/14 13:45:24 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,5 @@ int		ft_main(void)
 int main()
 {
 	ft_main();
-	while (1);
+	
 }
