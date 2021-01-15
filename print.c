@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 14:39:38 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 13:34:40 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 10:06:30 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_displ_str(t_struct *ts)
 
 void	ft_displ_int(t_struct *ts)
 {
-	if (!ts->flags[0] && ts->width)
+	if ((!ts->flags[0] && ts->width))
 		ft_displ_spc(ts, ts->width);
 	ft_displ_pre(ts);
 	if (ts->flags[2] && ts->precision)

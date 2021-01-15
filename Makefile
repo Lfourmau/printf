@@ -12,9 +12,9 @@ SRCS =  ft_printf.c \
 		parsing.c \
 		ft_isit.c \
 		comp.c \
-		struct_manip.c \
+		struct_manip.c 
 
-GCCF = gcc -c -Wall -Wextra -Werror
+GCCF = gcc -Wall -Wextra -Werror
 
 INCLUDE = ft_printf.h
 
@@ -26,7 +26,6 @@ OBJS = $(SRCS:.c=.o)
 $(NAME): $(OBJS)
 	$(MAKE) -C ./libft
 	cp libft/libft.a $(NAME)
-	$(GCCF) $(SRCS)
 	ar -rcs $(NAME) $(OBJS)
 
 all : $(NAME)

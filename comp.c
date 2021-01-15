@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:11:07 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 13:35:38 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 11:23:01 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,12 @@ int		ft_min(int nb1, int nb2)
 	return (nb2);
 }
 
-void	ft_lencmp(t_struct *ts)
+void	ft_lencmp_util(t_struct *ts)
 {
-	if (ts->width && ts->neg)
-		ts->width = ts->width - ft_max(ts->toprint_len, ts->precision) - 1;
-	else if (ts->width && ts->spec == 'p')
-		ts->width = ts->width - ft_max(ts->toprint_len, ts->precision) - 2;
-	else if (ts->width)
-		ts->width = ts->width - ft_max(ts->toprint_len, ts->precision);
 	if (ft_strchr("diouxXp", ts->spec) && ts->flags[2] && !ts->precision
 		&& !ft_strncmp(ts->toprint, "0", 2))
 	{
-		if (ts->width)
+		if (ts->width || ts->nullwidth)
 			ts->width++;
 		free(ts->toprint);
 		ts->toprint = ft_strdup("");
@@ -51,4 +45,19 @@ void	ft_lencmp(t_struct *ts)
 	}
 	else if (ts->precision)
 		ts->precision -= ts->toprint_len;
+}
+
+void	ft_lencmp(t_struct *ts)
+{
+	if (ts->width && ts->neg)
+		ts->width = ts->width - ft_max(ts->toprint_len, ts->precision) - 1;
+	else if (ts->width && ts->spec == 'p')
+		ts->width = ts->width - ft_max(ts->toprint_len, ts->precision) - 2;
+	else if (ts->width)
+	{
+		ts->width = ts->width - ft_max(ts->toprint_len, ts->precision);
+		if (ts->width == 0)
+			ts->nullwidth = 1;
+	}
+	ft_lencmp_util(ts);
 }

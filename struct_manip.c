@@ -6,7 +6,7 @@
 /*   By: lfourmau <lfourmau@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:44:02 by lfourmau          #+#    #+#             */
-/*   Updated: 2021/01/14 13:33:43 by lfourmau         ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 11:21:15 by lfourmau         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	struct_init(t_struct *ts)
 	ts->nbzero = 0;
 	ts->nbspaces = 0;
 	ts->neg = 0;
+	ts->nullwidth = 0;
 }
